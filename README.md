@@ -71,6 +71,7 @@ Use `github-sentinel` for:
 - `README.md`: project overview.
 - `PROJECT_MANAGEMENT.md`: Chinese project management guide.
 - `projects.yaml`: formal project mapping configuration.
+- `LICENSE`: MIT License.
 
 ## 中文
 
@@ -132,3 +133,7 @@ program/
 - Prompt；
 - 部署文件；
 - 运行时生成产物。
+
+### 开源协议
+
+本项目使用 MIT License，详见 `LICENSE`。
