@@ -1,79 +1,43 @@
-# agent-hub
+# Agent Hub
 
-<p align="center">
-  <a href="README-EN.md">English</a> | 中文
-</p>
+`agent-hub` 是当前工作区的 Agent 项目总览与导航入口。它不承载业务实现，只用于说明当前有哪些项目、每个项目服务什么用户场景，以及可以带来哪些产品价值。
 
-`agent-hub` 是当前工作区自有的 AI Agent 项目管理中心。
+## 具体项目
 
-仓库地址：[TzexZhang/agent-hub](https://github.com/TzexZhang/agent-hub)
+### GitHub Sentinel
 
-当前范围保持最小：
+[GitHub Sentinel](github-sentinel/README.md) 是一款面向开发者、项目管理人员和技术负责人的项目动态跟踪工具。它帮助团队集中关注重要仓库的变化，把分散的仓库更新整理成更容易阅读和同步的项目报告。
 
-- `agent-hub`：父级管理项目，用于维护项目映射、能力分配和跨项目配置。
-- `github-sentinel`：当前唯一计划增加的子项目，用于后续承载 GitHub 仓库跟踪、
-  更新检索、通知和报告生成能力。
+项目实现目录：`../github-sentinel`
 
-`agent-hub` 负责记录项目映射、负责人、能力分配、运行意图、GitHub 仓库跟踪
-规则和报告配置。子项目负责保存自己的实现文件。
+主要能力：
 
-## 项目用途
+- 订阅管理：集中维护团队关注的 GitHub/Gitee 仓库，支持公开仓库和私有仓库两类跟踪场景。
+- 更新检索：持续获取仓库最新动态，整理提交记录、Issue、Pull Request 等项目变化。
+- 通知系统：围绕仓库更新和项目报告组织通知内容，让团队成员及时获得关键进展。
+- 报告生成：把仓库动态整理成适合团队阅读的项目进展报告，支持日报、周报和版本摘要等场景。
+- 多模型支持：通过模型能力提升报告的可读性，把分散的项目更新整理成自然语言摘要。
+- 定时任务：按配置频率自动跟踪仓库变化，减少人工触发和人工巡检成本。
+- 图形化界面：通过可视化页面完成订阅、检索和报告查看，降低使用门槛。
+- 容器化部署：支持更标准的部署方式，便于在不同环境中交付和运行。
+- 持续集成：通过自动化测试和质量检查保障核心流程稳定。
+- 安全与数据保护：按需配置访问凭证，并避免在页面或结果中暴露敏感信息。
 
-使用 `agent-hub` 作为当前工作区 Agent 项目映射的事实来源。它回答这些问题：
-
-- 当前有哪些子项目？
-- 子项目在本地哪个目录？
-- 子项目分配了哪些能力？
-- 子项目需要跟踪哪些 GitHub 仓库？
-- 子项目使用什么运行方式和报告规则？
-
-## 当前项目结构
+## 目录说明
 
 ```text
-program/
-  agent-hub/
-    README.md
-    README-EN.md
-    PROJECT_MANAGEMENT.md
-    projects.yaml
-    LICENSE
-  github-sentinel/
+agent-hub/
+├── README.md
+├── LICENSE
+└── github-sentinel/
+    └── README.md
 ```
 
-## 当前范围
+## 维护约定
 
-当前只登记 `github-sentinel` 一个子项目。其他 Agent 项目不在当前范围内，除非
-后续明确扩展范围，否则不应添加。
-
-## 配置归属
-
-放在 `agent-hub`：
-
-- 子项目身份和本地路径映射；
-- 能力目录和能力分配；
-- 负责人、生命周期状态和管理备注；
-- GitHub 仓库跟踪规则；
-- 报告周期、语言和输出目标；
-- 子项目需要的环境变量名称。
-
-放在 `github-sentinel`：
-
-- 实现代码；
-- 依赖和包管理文件；
-- 测试；
-- 服务入口；
-- Prompt；
-- 部署文件；
-- 运行时生成产物。
-
-## 文件说明
-
-- `README.md`：中文项目概览。
-- `README-EN.md`：英文项目概览。
-- `PROJECT_MANAGEMENT.md`：项目管理说明。
-- `projects.yaml`：正式项目映射配置。
-- `LICENSE`：MIT License。
+- 新增项目时，在 `agent-hub/<project-id>/README.md` 中补充项目版本与发布信息。
+- 子项目实现代码不复制到 `agent-hub`。
 
 ## 开源协议
 
-本项目使用 MIT License，详见 `LICENSE`。
+本项目采用 MIT License，详见 [LICENSE](LICENSE)。
