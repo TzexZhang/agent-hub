@@ -10,9 +10,9 @@
 | ---------- | ----------------- |
 | 项目 ID      | `github-sentinel` |
 | 项目类型       | 工具型 Agent         |
-| 当前版本       | `v0.0.3`          |
-| 发布日期       | `2026-06-01`      |
-| Python 包版本 | `0.0.3`           |
+| 当前版本       | `v0.0.4`          |
+| 发布日期       | `2026-06-04`      |
+| Python 包版本 | `0.0.4`           |
 | 开源协议       | MIT               |
 | 运行环境       | Python 3.12+      |
 
@@ -23,6 +23,7 @@
 | `v0.0.1` | 支持通过仓库地址订阅 GitHub/Gitee 仓库；公开仓库可不填写访问令牌，私有仓库可配置访问令牌；访问令牌加密保存且不在接口中返回；支持手动抓取仓库动态并生成报告；Push 中的多条 commit 会拆分为独立动态并写入报告；支持按时间范围查看报告；提供轻量 Dashboard 管理订阅和报告。 | [查看 v0.0.1](https://github.com/TzexZhang/github-sentinel/tree/v0.0.1?tab=readme-ov-file) |
 | `v0.0.2` | 支持按订阅间隔抓取仓库事件并基于订阅时间窗口生成报告；支持手动选择开始日期和结束日期，先更新事件表再生成 Markdown 报告；支持汇总 Push 和 Issue 相关事件，Push 会按 commit 拆分；支持按外部事件 ID 去重；支持接入内置 LLM 生成项目进展简报，可在智谱免费系列和 Gemini 免费系列间切换；LLM 报告按新增功能、主要改进、修复问题分类；报告名称可按仓库和日期范围生成；Dashboard 支持按订阅仓库查看报告列表、生成时间和 Markdown 正文；报告时间统一展示为 `YYYY-MM-DD HH:mm:ss`；新增环境变量示例文件。 | [查看 v0.0.2](https://github.com/TzexZhang/github-sentinel/tree/v0.0.2?tab=readme-ov-file) |
 | `v0.0.3` | 新增 Gradio 可视化界面入口，支持在页面中创建订阅、查看订阅列表、通过操作列删除订阅，并在报告中心完成报告生成与 Markdown 正文预览；报告中心支持按订阅仓库、最近时间范围或自定义日期范围主动查询报告列表；报告列表查询日期和生成报告日期拆分为两组独立条件，默认填入最近一周；日期选择器完成中文化与弹层位置优化；报告预览区域调整为模块内部滚动；报告数据增加日期周期记录，同一订阅仓库、同一日期范围重复生成时更新既有报告；仓库事件汇总范围扩展到 Pull Request，报告整理能力覆盖 Push、Issue、Pull Request。 | [查看 v0.0.3](https://github.com/TzexZhang/github-sentinel/tree/v0.0.3?tab=readme-ov-file) |
+| `v0.0.4` | 支持单用户、多仓库订阅管理，可在 Dashboard 中创建、查看、修改和删除仓库订阅；支持按订阅维度配置抓取间隔，系统会在订阅到期后获取当前周期内的新事件并生成报告；支持订阅与通知通道绑定，通知类型覆盖 SMTP 邮箱、企业微信自建应用消息和通用 Webhook；支持在创建或修改订阅时选择通知类型并填写通知目标；支持报告生成后创建通知任务，由应用内 Notification Worker 统一投递通知并记录发送状态、失败原因和重试信息；支持手动生成报告时选择是否发送通知；支持将报告 Markdown 转换为适合不同通道展示的内容；企业微信通知支持通过自建应用向成员账号推送文本消息，并预留接收消息服务器 URL、Token 和 EncodingAESKey 配置入口。 | [查看 v0.0.4](https://github.com/TzexZhang/github-sentinel/tree/v0.0.4?tab=readme-ov-file) |
 
 ## 版本管理规则
 
