@@ -10,9 +10,9 @@
 | ---------- | ----------------- |
 | 项目 ID      | `github-sentinel` |
 | 项目类型       | 工具型 Agent         |
-| 当前版本       | `v1.0.2`          |
-| 发布日期       | `2026-06-06`      |
-| Python 包版本 | `1.0.2`           |
+| 当前版本       | `v2.0.0`          |
+| 发布日期       | `2026-07-22`      |
+| Python 包版本 | `2.0.0`           |
 | 开源协议       | MIT               |
 | 运行环境       | Python 3.12+      |
 
@@ -27,6 +27,7 @@
 | `v1.0.0` | 新增本地账号体系，支持注册、登录、退出登录和修改密码；新增 Cookie/Token 会话机制，默认 7 天内免登录；仓库订阅、报告和通知任务按当前登录用户隔离；新增报告管理模块，支持查看报告列表、批量勾选并物理删除报告；新增用户管理模块；报告列表按生成时间倒序展示；企业微信通知支持完整正文发送，内容过长时自动拆分为多条文本消息；Notification Worker 支持单轮处理数量控制，默认每轮处理 50 条待发送任务；项目名称调整为 `Git Sentinel`；仓库订阅通知类型保留“不通知”“邮箱 SMTP”“企业微信通知”。 | [查看 v1.0.0](https://github.com/TzexZhang/github-sentinel/tree/v1.0.0?tab=readme-ov-file) |
 | `v1.0.1` | 修复多用户订阅同一仓库时，仓库事件按全局 `external_id` 去重导致后创建订阅无法入库事件的问题；仓库事件唯一性调整为同一订阅内按 `(subscription_id, external_id)` 去重，确保不同用户的相同仓库订阅可以分别生成包含事件内容的报告；新增 `repository_events` 表结构迁移，服务启动时会将旧的全局事件唯一约束平滑调整为订阅级唯一约束，并保留已有事件数据。 | [查看 v1.0.1](https://github.com/TzexZhang/github-sentinel/tree/223d95e378e640932f10f0aecb7c988324b29bd9?tab=readme-ov-file) |
 | `v1.0.2` | 手动生成报告时，只要勾选“生成后发送通知”，就会创建新的通知任务并触发发送流程；即使当前时间范围已有历史报告且没有新事件，手动勾选发送通知也会再次创建通知任务；定时任务的通知仍保持去重逻辑，避免同一报告和同一通知通道被定时重复推送。 | [查看 v1.0.2](https://github.com/TzexZhang/github-sentinel/tree/f59fd195b5060a79d7e2207532c1c814b4e525e7?tab=readme-ov-file) |
+| `v2.0.0` | `/dashboard` 默认提供全量重构的 React 单页应用，覆盖登录注册、订阅管理、报告生成与管理、账号设置等原 Gradio 交互；保留 Gradio 版本，两版使用相同公开路由，并通过 HttpOnly `github_sentinel_ui_version` Cookie 手动切换；新增类型化报告接口、共享手动报告服务与 OpenAPI 生成客户端，React 和 Gradio 共用业务语义；新增生产/开发 Nginx 分流配置、前端多阶段镜像、桌面与移动端 Playwright E2E，以及后端/前端/浏览器 CI 矩阵；React Dashboard 使用 History 路由，支持直接访问或刷新 `/dashboard/login`、`/dashboard/subscriptions`、`/dashboard/reports` 等嵌套页面；回退时无需更改路由或重新部署，将界面版本切换为 `gradio` 后重新访问 `/dashboard` 即可。 | [查看 v2.0.0](https://github.com/TzexZhang/github-sentinel/tree/ef7bfe915b9e3817fb5eb4c697bfaba8a0e6b4a6?tab=readme-ov-file) |
 
 ## 版本管理规则
 
